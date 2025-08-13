@@ -1,5 +1,5 @@
 impl Solution {
-    pub fn check_palindrome_len(s: &String, i: i32) -> (i32, i32, i32) {
+    fn check_odd(s: &String, i: i32) -> (i32, i32, i32) {
         let mut r = 0;
         loop {
             let next = r + 1;
@@ -10,11 +10,14 @@ impl Solution {
             }
             r = next;
         }
-        let len1 = 2 * r + 1;
-        let start1 = i - r;
-        let end1 = i + r;
+        let len = 2 * r + 1;
+        let start = i - r;
+        let end = i + r;
+        (len, start, end)
+    }
 
-        r = 0;
+    fn check_even(s: &String, i: i32) -> (i32, i32, i32) {
+        let mut r = 0;
         loop {
             let next = r + 1;
             if i - next + 1 < 0
@@ -24,10 +27,15 @@ impl Solution {
             }
             r = next;
         }
-        let len2 = 2 * r;
-        let start2 = i - r + 1;
-        let end2 = i + r;
+        let len = 2 * r;
+        let start = i - r + 1;
+        let end = i + r;
+        (len, start, end)
+    }
 
+    fn check_palindrome_len(s: &String, i: i32) -> (i32, i32, i32) {
+        let (len1, start1, end1) = Self::check_odd(s, i);
+        let (len2, start2, end2) = Self::check_even(s, i);
         if len2 > len1 {
             (len2, start2, end2)
         } else {
