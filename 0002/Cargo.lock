@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "leetcode"
+name = "p2"
 version = "0.1.0"

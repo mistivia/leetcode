@@ -55,7 +55,6 @@ impl Solution {
         let mut mid2: i32 = 0;
         loop {
             if left > right { break; }
-            println!("left: {}, right: {}", left, right);
             mid = (left + right) / 2;
             mid2 = (n1.len() + n2.len()) as i32 / 2 - (1 + mid) - 1;
             if mid2 < -1 {
