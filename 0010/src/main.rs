@@ -110,6 +110,4 @@ mod tests {
     }
 }
 
-fn main() -> i32 {
-    0
-}
+fn main() {}
